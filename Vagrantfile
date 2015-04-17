@@ -2,11 +2,19 @@
 Vagrant.configure(2) do |config|
   
   # Get the official Ubuntu trusty64 box
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.box = 'ubuntu/trusty64'
+    config.vm.hostname = 'arin-rdap'
+    
+    config.vm.customize [
+        'modifyvim', :id,
+        '--name', 'arin-rdap',
+        '--memory', '512'
+    ]
   
   
     config.vm.provision :puppet do |puppet|
-        puppet.manifests_path = "manifests"
-        puppet.manifest_file = "init.pp"
+        puppet.manifests_path = "puppet/manifests"
+        puppet.manifest_file = "site.pp"
+        puppet.modules_path = "puppet/modules"
     end 
 end
