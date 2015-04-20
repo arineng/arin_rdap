@@ -5,8 +5,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| 
   # Get the official Ubuntu trusty64 box
     config.vm.define "rdap" do |rdap|
-        config.vm.box = 'smbambling/centos66-64'
-        #config.vm.box = 'ubuntu/trusty64'
+        config.vm.box = 'smbambling/centos66-64' #This one for CentOS
+        #config.vm.box = 'ubuntu/trusty64'       #This one for Ubuntu
         config.vm.hostname = 'arin-rdap'
     end
     
