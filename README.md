@@ -7,3 +7,4 @@ git clone --recursive https://github.com/champain/arin_rdap.git
 cd arin_rdap
 vagrant up
 ```
+Support for CentOS added
