@@ -5,7 +5,7 @@ Instructions:
 
 If you'd like to use CentOS you simply need to uncomment the relevant config line for your preferred OS:
 
-```
+```ruby
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| 
   # Get the official Ubuntu trusty64 box
     config.vm.define "rdap" do |rdap|
