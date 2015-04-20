@@ -7,19 +7,16 @@ class baseconfig {
     command => '/usr/bin/apt-get update';
   }
 
-  package { 'git':
-    ensure => present,
+  Package {
+    ensure  => present,
+    require => Exec['apt-get update'],
   }
 
-  package { 'maven':
-    ensure => present,
-  }
+  package { 'git': }
 
-  package { 'maven2':
-    ensure => present,
-  }
+  package { 'maven': }
 
-  package { 'default-jdk':
-    ensure => present,
-  }
+  package { 'maven2':}
+
+  package { 'default-jdk': }
 }
