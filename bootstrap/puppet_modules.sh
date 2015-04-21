@@ -2,9 +2,9 @@
 modules=(stdlib tomcat vcsrepo)
 
 for i in ${modules[*]} ; do
-  if [ -f /etc/puppet/modules/$i ] ; then
+  if [ ! -f /etc/puppet/modules/$i ] ; then
     echo "Installing Puppet Module $i"
-    puppet module install puppetlabs-$i
+    puppet module install puppetlabs-$i --modulepath '/vagrant/puppet/modules'
   else
     echo "Puppet module $i is already installed"
   fi
