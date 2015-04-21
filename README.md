@@ -3,18 +3,6 @@ A very simple vagrant machine that currently uses either Ubuntu or CentOS design
 
 Instructions: 
 
-If you'd like to use CentOS you simply need to uncomment the relevant config line for your preferred OS:
-
-```ruby
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| 
-  # Get the official Ubuntu trusty64 box
-    config.vm.define "rdap" do |rdap|
-        #config.vm.box = 'smbambling/centos66-64'
-        config.vm.box = 'ubuntu/trusty64'
-        config.vm.hostname = 'arin-rdap'
-    end 
-```
-
 This project uses submodules, so be sure to use `--recursive` when cloning
 
 ```
@@ -23,3 +11,14 @@ cd arin_rdap
 vagrant up
 ```
 
+If you'd like to use CentOS or Ubuntu you simply need to uncomment the relevant config line for your preferred OS:
+
+```ruby
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| 
+  # Get the official Ubuntu trusty64 box
+    config.vm.define "rdap" do |rdap|
+        config.vm.box = 'smbambling/centos66-64'
+        #config.vm.box = 'ubuntu/trusty64'
+        config.vm.hostname = 'arin-rdap'
+    end 
+```
