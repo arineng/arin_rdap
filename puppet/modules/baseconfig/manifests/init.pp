@@ -17,7 +17,7 @@ class baseconfig {
     } 
     Ubuntu: { 
       $update_command = '/usr/bin/apt-get update'
-      $java_packages = ['maven', 'maven2', 'default-jdk']
+      $java_packages = ['maven', 'maven2', 'default-jdk', 'git']
     } 
   }
   exec { $update_command :
