@@ -1,1 +1,5 @@
 .vagrant
+
+# Ignore all modules except for baseconfig
+puppet/modules/*
+!puppet/modules/baseconfig
