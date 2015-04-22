@@ -28,15 +28,22 @@ exec { 'mvn_package':
   command => "/usr/bin/mvn package -e -f /opt/rdap/code/pom.xml",
 }
 
+class { 'tomcat': }
+
+$tomcat_ver = $operatingsystem ? {
+  'CentOS' => 'tomcat6',
+  'Ubuntu' => 'tomcat6',
+}
+
 tomcat::service { 'default':
   use_jsvc      => false,
   use_init      => true,
-  service_name  => 'tomcat7',
-  catalina_base => '/var/lib/tomcat7',
+  service_name  => $tomcat_ver,
+  catalina_base => '/var/lib/tomcat',
 }
 
 tomcat::war { 'rdap_bootstrap_server-1000.0-SNAPSHOT.war':
-  catalina_base => '/var/lib/tomcat7',
+  catalina_base => "/var/lib/${tomcat_ver}",
   war_source    => '/opt/rdap/code/target/rdap_bootstrap_server-1000.0-SNAPSHOT.war',
   require       => Exec['mvn_package'],
   notify        => Tomcat::Service['default'],
