@@ -14,6 +14,7 @@ class baseconfig {
         gpgcheck => 0,
         before   => Package[$java_packages]
       }
+      # Install EPEL for tomcat
       yumrepo { "epel":
         baseurl  => 'http://download.fedoraproject.org/pub/epel/6/$basearch',
         descr    => 'Extra Packages for Enterprise Linux 6 - $basearch',
